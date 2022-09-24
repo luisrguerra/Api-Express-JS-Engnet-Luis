@@ -1,8 +1,11 @@
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 const middlewares = require("./middlewares");
 
 const app = express();
+
+app.use(cors({origin: "*"}));
 
 // --- Os primeiros middlewares
 // app.use cadastra um middleware para ser executado em todos os tipos de request
@@ -21,6 +24,8 @@ app.get("/segredo", middlewares.segredo);
 app.get("/todos", middlewares.findAllTodos);
 app.get("/todos/:id", middlewares.findTodoById);
 app.post("/todos", middlewares.createTodo);
+app.patch("/todos/:id", middlewares.updateTodo);
+app.delete("/todos/:id", middlewares.deleteTodo);
 
 // -----------------------------------
 

@@ -1,0 +1,22 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#lista-tarefas{
+    list-style: none;
+}
+
+.titulo{
+    font-size: 4rem;
+}
+
+.item-lista{
+    background-color: lightslategray;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+}
