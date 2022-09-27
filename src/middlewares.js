@@ -93,7 +93,19 @@ function updateTodo(request, response){
   };
   return response.status(400).send("Não encontrado");
 
-}
+};
+
+function deleteTodo(request, response){
+  const { id } = request.body;
+
+  for (var contagem in enderecoJson){
+       if (enderecoJson[contagem].id == id){
+        delete enderecoJson[contagem];
+        return response.status(200).send("Deletado");
+       }
+  };
+  return response.status(400).send("Não encontrado");
+};
 
 module.exports = {
   hello,
@@ -102,4 +114,5 @@ module.exports = {
   findTodoById,
   createTodo,
   updateTodo,
+  deleteTodo,
 };
