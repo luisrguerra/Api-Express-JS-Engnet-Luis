@@ -22,6 +22,7 @@ app.get("/segredo", middlewares.segredo);
 // Cadastre os novos middlewares de rota aqui
 app.get("/todos", middlewares.findAllTodos);
 app.get("/todos/:id", middlewares.findTodoById);
+app.post("/todos", middlewares.createTodo);
 
 // -----------------------------------
 
