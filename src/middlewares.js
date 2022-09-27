@@ -1,3 +1,5 @@
+const enderecoJson = require("./database/todos.json");
+
 function hello(request, response) {
   return response.send("Bem vindo a minha primeira API !!!");
 }
@@ -15,7 +17,12 @@ function segredo(request, response) {
 
 // Insira novos middlewares de rota aqui
 
+function findAllTodos(request, response) {
+  return response.json(enderecoJson);
+}
+
 module.exports = {
   hello,
   segredo,
+  findAllTodos,
 };
