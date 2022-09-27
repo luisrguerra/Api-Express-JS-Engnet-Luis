@@ -63,10 +63,43 @@ function createTodo(request, response) {
   return response.status(201).json(todo);
 }
 
+//em construcao
+function updateTodo(request, response){
+  const { nome, descricao, data, id } = request.body;
+
+  if (!nome || !descricao || !data || !id) {
+    return response.status(400).send("Informações inválidas");
+  }
+
+  const dataString = new Date(data);
+
+  if (dataString.toString() === "Invalid Date") {
+    return response.status(400).send("Data inválida");
+  }
+
+  const dados = {
+    id,
+    nome,
+    descricao,
+    data: new Date(data),
+    concluido: false,
+  };
+
+  for (var contagem in enderecoJson){
+       if (enderecoJson[contagem].id == id){
+        enderecoJson[contagem] = dados;
+        return response.status(200).send("Atualizado");
+       }
+  };
+  return response.status(400).send("Não encontrado");
+
+}
+
 module.exports = {
   hello,
   segredo,
   findAllTodos,
   findTodoById,
   createTodo,
+  updateTodo,
 };

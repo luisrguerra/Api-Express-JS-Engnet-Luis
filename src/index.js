@@ -23,6 +23,7 @@ app.get("/segredo", middlewares.segredo);
 app.get("/todos", middlewares.findAllTodos);
 app.get("/todos/:id", middlewares.findTodoById);
 app.post("/todos", middlewares.createTodo);
+app.put("/todos", middlewares.updateTodo);
 
 // -----------------------------------
 
