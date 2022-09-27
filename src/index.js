@@ -2,6 +2,8 @@ const express = require("express");
 const morgan = require("morgan");
 const middlewares = require("./middlewares");
 
+const porta = 3000;
+
 const app = express();
 
 // --- Os primeiros middlewares
@@ -18,11 +20,12 @@ app.use("*", express.json());
 app.get("/", middlewares.hello);
 app.get("/segredo", middlewares.segredo);
 // Cadastre os novos middlewares de rota aqui
-app.get("/todos", middlewares.findAllTodos)
+app.get("/todos", middlewares.findAllTodos);
+app.get("/todos/:id", middlewares.findTodoById);
 
 // -----------------------------------
 
-// Esse comando liga o servidor na porta 3000
-app.listen(3000, () => {
-  console.log("Servidor sendo executado em http://localhost:3000");
+// Esse comando liga o servidor na porta
+app.listen(porta, () => {
+  console.log("Servidor sendo executado em http://localhost:" + porta);
 });
